@@ -1,24 +1,33 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
+import { motion } from "framer-motion";
 import tw, { styled, css } from "twin.macro";
 
 const BackgroundImage = styled.div`
-  width: 100%;
-  height: 90%;
+  ${tw`h-64 w-full rounded-xl`}
   background-position: center;
   background-size: cover;
   background-image: url("${(props) => props.url}");
 `;
 
-export const MenuCard = ({ title, imageUrl }) => {
+export const MenuCard = ({ title, imageUrl }, id) => {
   return (
-    <div css={tw`h-64 w-1/3 flex-grow box-border p-5 justify-between`}>
-      <BackgroundImage url={imageUrl} />
-
+    <motion.div
+      css={[
+        css`
+          flex-basis: 25%;
+        `,
+        tw`rounded-xl cursor-pointer flex-grow flex-shrink box-border m-3 justify-between`,
+      ]}
+      key={id}
+      whileHover={{
+        "flex-basis": "35%",
+      }}
+    >
       <div className="content">
-        <h1 className="title">{title}</h1>
-        <span className="subtitle">Explore Now</span>
+        <h1 css={tw`font-bold pb-3 px-1 text-xl text-gray-900`}>{title}</h1>
       </div>
-    </div>
+      <BackgroundImage url={imageUrl} />
+    </motion.div>
   );
 };

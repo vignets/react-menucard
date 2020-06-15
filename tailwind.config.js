@@ -1,8 +1,12 @@
 module.exports = {
   purge: [],
   theme: {
-    extend: {},
+    extend: {
+      borderRadius: {
+        xl: "12px",
+      },
+    },
   },
   variants: {},
   plugins: [],
-}
+};

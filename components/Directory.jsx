@@ -33,9 +33,12 @@ const sections = [
 ];
 
 export const Directory = () => (
-         <div css={tw`flex flex-row flex-wrap box-border`}>
-           {sections.map(({ title, imageUrl, id }) => (
-             <MenuCard key={id} title={title} imageUrl={imageUrl} />
-           ))}
-         </div>
-       );
+  <div css={tw`max-w-screen-lg p-10 mx-auto`}>
+    <h1 css={tw`font-bold px-3 text-2xl text-gray-900`}>Categories:</h1>
+    <div css={tw`flex flex-row flex-wrap box-border`}>
+      {sections.map(({ title, imageUrl }, id) => (
+        <MenuCard key={id} title={title} imageUrl={imageUrl} />
+      ))}
+    </div>
+  </div>
+);
