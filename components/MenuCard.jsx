@@ -61,8 +61,8 @@ export const MenuCard = ({ title, imageUrl }) => {
       css={[
         css`
           flex-basis: 100%;
-          @media (min-width: 768px) {
-            flex-basis: 50%;
+          @media (min-width: 640px) {
+            flex-basis: 30%;
           }
           @media (min-width: 1024px) {
             flex-basis: 25%;
@@ -71,7 +71,7 @@ export const MenuCard = ({ title, imageUrl }) => {
         tw`h-64 rounded-xl cursor-pointer flex-grow flex-shrink box-border m-3 justify-between`,
       ]}
       whileHover={{
-        "flex-basis": "30%",
+        "flex-basis": "32%",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
