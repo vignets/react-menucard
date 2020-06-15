@@ -1,15 +1,30 @@
 {
-  "name": "uber-work",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "9.4.4",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
-  }
+	"name": "uber-work",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"dev-host1": "next dev -H 192.168.0.108",
+		"build": "next build",
+		"start": "next start"
+	},
+	"babelMacros": {
+		"twin": {
+			"config": "./tailwind.config.js",
+			"preset": "emotion",
+			"hasSuggestions": true,
+			"debug": false
+		}
+	},
+	"dependencies": {
+		"@emotion/babel-preset-css-prop": "^10.0.27",
+		"@emotion/core": "^10.0.28",
+		"@emotion/styled": "^10.0.27",
+		"emotion": "^10.0.27",
+		"emotion-server": "^10.0.27",
+		"next": "9.4.4",
+		"react": "16.13.1",
+		"react-dom": "16.13.1",
+		"twin.macro": "^1.4.1"
+	}
 }

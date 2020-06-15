@@ -6,7 +6,10 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
+# to add hostname
+npm run dev -- -H 192.168.x.x
+
+# or with yarn
 yarn dev
 ```
 
