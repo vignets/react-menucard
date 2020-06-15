@@ -60,7 +60,13 @@ export const MenuCard = ({ title, imageUrl }) => {
     <motion.div
       css={[
         css`
-          flex-basis: 25%;
+          flex-basis: 100%;
+          @media (min-width: 768px) {
+            flex-basis: 50%;
+          }
+          @media (min-width: 1024px) {
+            flex-basis: 25%;
+          }
         `,
         tw`h-64 rounded-xl cursor-pointer flex-grow flex-shrink box-border m-3 justify-between`,
       ]}
@@ -74,7 +80,7 @@ export const MenuCard = ({ title, imageUrl }) => {
         css={[
           tw`absolute z-10 font-bold pb-3 px-1 text-xl`,
           isHovered
-            ? tw`h-64 text-white text-4xl font-black px-5 py-2`
+            ? tw`h-64 text-white text-3xl md:text-4xl font-black px-5 py-2`
             : tw``,
         ]}
       >

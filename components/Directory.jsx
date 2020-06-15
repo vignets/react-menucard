@@ -28,7 +28,7 @@ const sections = [
 ];
 
 export const Directory = () => (
-  <div css={tw`max-w-screen-lg p-10 mx-auto`}>
+  <div css={tw`max-w-screen-lg p-5 md:p-10 mx-auto`}>
     <h1 css={tw`font-bold px-4 text-3xl`}>Categories</h1>
     <div css={tw`flex flex-row flex-wrap box-border`}>
       {sections.map(({ title, imageUrl }, id) => (
