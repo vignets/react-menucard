@@ -9,12 +9,12 @@ import { breakStyle } from "../utils/breakpoint.js";
 const mq = facepaint(["@media(min-width: 640px)", "@media(min-width: 768px)"]);
 
 const Wrapper = styled(motion.div)(() => [
+  tw`h-64 rounded-xl cursor-pointer flex-grow flex-shrink box-border m-3 justify-between`,
   css(
     mq({
       flexBasis: ["100%", "30%", "25%"],
     })
   ),
-  tw`h-64 rounded-xl cursor-pointer flex-grow flex-shrink box-border m-3 justify-between`,
 ]);
 
 const Title = styled(motion.div)(({ isHovered }) => [
@@ -23,6 +23,7 @@ const Title = styled(motion.div)(({ isHovered }) => [
 ]);
 
 const BackgroundImage = styled(motion.div)(({ isHovered, url }) => [
+  tw`h-56 w-full rounded-xl`,
   css`
     background-position: center;
     background-size: cover;
@@ -55,7 +56,6 @@ const BackgroundImage = styled(motion.div)(({ isHovered, url }) => [
         left: 0;
       }
     `,
-  tw`h-56 w-full rounded-xl`,
 ]);
 
 export default function MenuCard({ titleText, imageUrl }) {
@@ -77,6 +77,7 @@ export default function MenuCard({ titleText, imageUrl }) {
       y: "2rem",
     },
   };
+
   return (
     <Wrapper
       whileHover="hover"
