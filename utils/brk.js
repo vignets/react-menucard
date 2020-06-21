@@ -19,7 +19,7 @@ var breakpoints = {
 
 export function brk(params, breakpoints) {
   breakpoints.default = true;
-  var result = false;
+  const result = false;
 
   Object.keys(params)
     .reverse()

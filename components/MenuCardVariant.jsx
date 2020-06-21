@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 import tw, { styled, css } from "twin.macro";
 import { useState, useEffect } from "react";
 import facepaint from "facepaint";
-import { useBreakpoint } from "../utils/breakpoint.js";
-import { brk } from "../utils/brk.js";
+import { breakStyle } from "../utils/breakpoint.js";
 
 const mq = facepaint(["@media(min-width: 640px)", "@media(min-width: 768px)"]);
 
@@ -61,11 +60,10 @@ const BackgroundImage = styled(motion.div)(({ isHovered, url }) => [
 
 export default function MenuCard({ titleText, imageUrl }) {
   const [isHovered, setHovered] = useState(false);
-  const breakpoints = useBreakpoint();
 
   const wrapper = {
     hover: {
-      flexBasis: brk({ default: "100%", sm: "40%", md: "30%" }, breakpoints),
+      flexBasis: breakStyle({ default: "100%", sm: "40%", md: "30%" }),
     },
   };
 

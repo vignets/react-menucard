@@ -66,4 +66,18 @@ function useBreakpoint() {
   }
   return context;
 }
-export { useBreakpoint, BreakpointProvider };
+
+function breakStyle(style) {
+  const breakpoints = useBreakpoint();
+  breakpoints.default = true;
+  var result = false;
+
+  Object.keys(style)
+    .reverse()
+    .forEach(function (key) {
+      result = result || (breakpoints[key] && style[key]);
+    });
+  return result;
+}
+
+export { breakStyle, useBreakpoint, BreakpointProvider };
