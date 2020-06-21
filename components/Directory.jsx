@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
 import tw from "twin.macro";
-import { MenuCard } from "../components/MenuCard";
+import MenuCard from "../components/MenuCardVariant";
 
 const sections = [
   {
@@ -32,7 +32,7 @@ export const Directory = () => (
     <h1 css={tw`font-bold px-4 text-3xl`}>Categories</h1>
     <div css={tw`flex flex-row flex-wrap box-border`}>
       {sections.map(({ title, imageUrl }, id) => (
-        <MenuCard key={id} title={title} imageUrl={imageUrl} />
+        <MenuCard key={id} titleText={title} imageUrl={imageUrl} />
       ))}
     </div>
   </div>
