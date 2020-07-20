@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
 import tw from "twin.macro";
-import MenuCard from "../components/MenuCardVariant";
+import MenuCard from "./MenuCard";
 
 const sections = [
   {
