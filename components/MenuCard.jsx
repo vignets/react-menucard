@@ -2,28 +2,38 @@
 import { jsx } from "@emotion/core";
 import { motion } from "framer-motion";
 import tw, { styled, css } from "twin.macro";
-import { useState, useEffect } from "react";
-import facepaint from "facepaint";
-import { breakStyle } from "../utils/breakpoint.js";
-
-const mq = facepaint(["@media(min-width: 640px)", "@media(min-width: 768px)"]);
+import { useState } from "react";
 
 const Wrapper = styled(motion.div)(() => [
-  tw`h-64 rounded-xl cursor-pointer flex-grow flex-shrink box-border m-3 justify-between`,
-  css(
-    mq({
-      flexBasis: ["100%", "30%", "25%"],
-    })
-  ),
+  tw`box-border justify-between flex-grow flex-shrink h-64 m-3 cursor-pointer rounded-xl`,
+  css`
+    flex-basis: 100%;
+    transition: all 0.2s ease-in-out;
+    @media (min-width: 640px) {
+      flex-basis: 30%;
+    }
+    @media (min-width: 768px) {
+      flex-basis: 25%;
+    }
+    &:hover {
+      flex-basis: 100%;
+      @media (min-width: 640px) {
+        flex-basis: 40%;
+      }
+      @media (min-width: 768px) {
+        flex-basis: 32%;
+      }
+    }
+  `,
 ]);
 
 const Title = styled(motion.div)(({ isHovered }) => [
-  tw`absolute z-10 font-bold pb-3 px-1 text-xl`,
-  isHovered && tw`h-64 text-white text-3xl md:text-4xl font-black px-5 py-2`,
+  tw`absolute z-10 px-1 pb-3 text-xl font-bold`,
+  isHovered && tw`h-64 px-5 py-2 text-3xl font-black text-white md:text-4xl`,
 ]);
 
 const BackgroundImage = styled(motion.div)(({ isHovered, url }) => [
-  tw`h-56 w-full rounded-xl`,
+  tw`w-full h-56 rounded-xl`,
   css`
     background-position: center;
     background-size: cover;
@@ -61,13 +71,7 @@ const BackgroundImage = styled(motion.div)(({ isHovered, url }) => [
 export default function MenuCard({ titleText, imageUrl }) {
   const [isHovered, setHovered] = useState(false);
 
-  const wrapper = {
-    hover: {
-      flexBasis: breakStyle({ default: "100%", sm: "40%", md: "30%" }),
-    },
-  };
-
-  const backgroundImage = {
+  const backgroundImageVariant = {
     hover: {
       height: "16rem",
       y: "0rem",
@@ -81,7 +85,6 @@ export default function MenuCard({ titleText, imageUrl }) {
   return (
     <Wrapper
       whileHover="hover"
-      variants={wrapper}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -94,7 +97,7 @@ export default function MenuCard({ titleText, imageUrl }) {
           duration: 0.2,
         }}
         initial="initial"
-        variants={backgroundImage}
+        variants={backgroundImageVariant}
       />
     </Wrapper>
   );
